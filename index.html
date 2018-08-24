@@ -8,10 +8,27 @@
     <script src="node_modules/vega-lite/build/vega-lite.min.js"></script>
     <script src="node_modules/vega-embed/build/vega-embed.min.js"></script>
     <script src="d3.min.js"></script>
-
+    <style media="screen">
+      body {
+        background: #eee;
+        padding: 0;
+        margin: 0;
+        font: 1rem Helvetica, Arial, sans-serif;
+      }
+      .container {
+        width: 960px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 3rem;
+      }
+      .vega-actions { display:none; }
+    </style>
   </head>
   <body>
-    <div id="vis"></div>
+    <div class="container">
+      <h2>Top mobile wikis</h2>
+      <div id="top_mobile"></div>
+    </div>
     <script src="viz.js"></script>
   </body>
 </html>

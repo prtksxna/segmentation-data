@@ -35,30 +35,39 @@ d3.csv('data.csv', function ( d ) {
     wiki_name: d['wiki name']
   }
 }).then( function (data) {
-  console.log(data[0]);
   draw( data );
 });
 
 function draw(data) {
-
-  console.log( data.length);
-
-  var test = {
-    "title": "Lololol",
-    "description": "A simple bar chart with embedded data.",
-    "data": { "values": data },
-    "mark": "bar",
-    "encoding": {
-      "x": {
-        "field": "wiki",
-        "type": "ordinal"
+  var top_mobile = {
+    title: "Mobile Web Pageviews > 65%",
+    data: { values: data },
+    transform: [
+      {
+        filter: {
+          field: "mobile_web_pageviews",
+          gte: 65
+        }
+      }
+    ],
+    mark: "bar",
+    encoding: {
+      x: {
+        field: "wiki",
+        type: "ordinal",
+        sort: {
+          field: "mobile_web_pageviews",
+          op: "average",
+          order: "descending"
+        }
       },
-      "y": {"field": "monthly_active_editors", "type": "quantitative"}
+      y: {
+        field: "mobile_web_pageviews",
+        type: "quantitative"
+      }
     }
   }
-  vegaEmbed("#vis", test);
-
-
+  vegaEmbed("#top_mobile", top_mobile);
 }
 
 // Remove commas
