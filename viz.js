@@ -1,5 +1,4 @@
 d3.csv('data.csv', function ( d ) {
-  console.log( d );
   return {
     wiki: d.wiki,
     overall_size_rank: rc(d['overall size rank']),
@@ -94,7 +93,8 @@ function draw(data) {
         type: 'quantitative'
       },
       tooltip: {
-        field: 'wiki_name'
+        field: 'wiki_name',
+        type: 'nominal'
       }
     }
   }
