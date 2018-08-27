@@ -13,7 +13,10 @@
         background: #eee;
         padding: 0;
         margin: 0;
-        font: 1rem Helvetica, Arial, sans-serif;
+        font: 1rem 'Helvetica Neue', Arial, sans-serif;
+      }
+      h1, h2, h3 {
+        font-weight: 400;
       }
       .container {
         width: 960px;
@@ -21,18 +24,43 @@
         background: #fff;
         padding: 3rem;
       }
+      a {
+        color: #000;
+      }
+      hr {
+        margin: 3rem 0;
+        border: none;
+        border-bottom: 1px solid #ddd;
+      }
+      p {
+        color: #666;
+        font: 1rem 'Hoefler Text', Georgia, serif;
+        line-height: 1.5;
+      }
       .vega-actions { display:none; }
     </style>
   </head>
   <body>
     <div class="container">
+      <h1>Wiki Segmentation Visualizations</h1>
+      <p>
+        A collection of visualizations made from the <a href="https://docs.google.com/spreadsheets/d/1a-UBqsYtJl6gpauJyanx0nyxuPqRvhzJRN817XpkuS8/edit#gid=235909702">Wiki Segmentation Data</a>.
+        Hoping to use this to find patterns and insights in the data. If you have any visualizations in mind, or want one with a focus on a few variables feel free to <a href="https://github.com/prtksxna/segmentation-data/issues/new?template=visualization-request.md">request a new visualization</a>.
+      </p>
+
+      <hr>
+
       <h2>Top mobile wikis</h2>
+      <p>Wikis that have more than <code>65%</code> mobile page views.</p>
       <div id="top_mobile"></div>
 
+      <hr>
+
       <h2>Editor cluster</h2>
+      <p>Zoom and pan to find clusters. This is pretty random, and I don't think it tells us anything useful.</p>
       <div id="editor_cluster"></div>
     </div>
-    
+
     <script src="viz.js"></script>
   </body>
 </html>
