@@ -68,6 +68,37 @@ function draw(data) {
     }
   }
   vegaEmbed("#top_mobile", top_mobile);
+
+  var editor_cluster = {
+    title: "Editor cluster",
+    width: 800,
+    height: 400,
+    data: { values: data },
+    "selection": {
+      "grid": {
+        "type": "interval", "bind": "scales"
+      }
+    },
+    mark: 'point',
+    encoding: {
+      x: {
+        field: 'monthly_new_active_editors',
+        type: 'quantitative'
+      },
+      y: {
+        field: 'monthly_active_editors',
+        type: 'quantitative'
+      },
+      size: {
+        field: 'monthly_editors',
+        type: 'quantitative'
+      },
+      tooltip: {
+        field: 'wiki_name'
+      }
+    }
+  }
+  vegaEmbed("#editor_cluster", editor_cluster);
 }
 
 // Remove commas
