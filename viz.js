@@ -120,6 +120,10 @@ function draw(data) {
         field: 'overall_size_rank',
         type: 'quantitative'
       },
+      color: {
+        field: 'project_name',
+        type: 'nominal'
+      },
       tooltip: {
         field: 'wiki_name',
         type: 'nominal'
