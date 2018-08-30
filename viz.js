@@ -6,7 +6,7 @@ d3.csv('data.csv', function ( d ) {
     mobile_unique_devices: rp( d['mobile unique devices'] ),
     mobile_web_pageviews: rp( d['mobile web pageviews']),
     mobile_app_pageviews: rp( d['mobile app pageviews']),
-    unique_devices_per_editor: rp( d['unique devices per editor']),
+    unique_devices_per_editor: rc( d['unique devices per editor']),
     monthly_editors: rc( d['monthly editors']),
     monthly_new_active_editors: rc(d['monthly new active editors']),
     monthly_active_editors: rc( d['monthly active editors']),
@@ -99,6 +99,33 @@ function draw(data) {
     }
   }
   vegaEmbed("#editor_cluster", editor_cluster);
+
+  vegaEmbed("#largest-wiki-smallest-editor", {
+    title: "Largest Wiki & Smallest Editors",
+    width: 800,
+    height: 400,
+    data: { values: data },
+    "selection": {
+      "grid": {
+        "type": "interval", "bind": "scales"
+      }
+    },
+    mark: 'point',
+    encoding: {
+      x: {
+        field: 'unique_devices_per_editor',
+        type: 'quantitative'
+      },
+      y: {
+        field: 'overall_size_rank',
+        type: 'quantitative'
+      },
+      tooltip: {
+        field: 'wiki_name',
+        type: 'nominal'
+      }
+    }
+  } );
 }
 
 // Remove commas
