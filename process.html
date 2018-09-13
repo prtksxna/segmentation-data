@@ -8,6 +8,8 @@
     <script src="node_modules/vega-lite/build/vega-lite.min.js"></script>
     <script src="node_modules/vega-embed/build/vega-embed.min.js"></script>
     <script src="d3.min.js"></script>
+    <script src="jquery.js"></script>
+    <script src="stats.js"></script>
     <style media="screen">
       body {
         background: #eee;
@@ -37,12 +39,16 @@
         font: 1rem 'Hoefler Text', Georgia, serif;
         line-height: 1.5;
       }
+
+      h3 {
+        margin-top: 8rem;
+      }
       .vega-actions { display:none; }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Wiki Segmentation Visualizations</h1>
+      <h1>Process</h1>
       <p>
         A collection of visualizations made from the <a href="https://docs.google.com/spreadsheets/d/1a-UBqsYtJl6gpauJyanx0nyxuPqRvhzJRN817XpkuS8/edit#gid=235909702">Wiki Segmentation Data</a>.
         Hoping to use this to find patterns and insights in the data. If you have any visualizations in mind, or want one with a focus on a few variables feel free to <a href="https://github.com/prtksxna/segmentation-data/issues/new?template=visualization-request.md">request a new visualization</a>.
@@ -50,24 +56,11 @@
 
       <hr>
 
-      <h2>Top mobile wikis</h2>
-      <p>Wikis that have more than <code>65%</code> mobile page views.</p>
-      <div id="top_mobile"></div>
-
-      <hr>
-
-      <h2>Editor cluster</h2>
-      <p>Zoom and pan to find clusters. This is pretty random, and I don't think it tells us anything useful.</p>
-      <div id="editor_cluster"></div>
-
-      <hr>
-
-      <h2>Largest wikis with the smallest editor pools</h2>
-      <p>Zoom and pan to find clusters. See the bottom left quadrant for high <code>overall_size_rank</code> wikis with few <code>unique_devices_per_editor</code>.</p>
-      <div id="largest-wiki-smallest-editor"></div>
+      <h2>Variables</h2>
+      <div id="vars"></div>
     </div>
 
-    <script src="viz.js"></script>
     <script src="data.js"></script>
+    <script src="process.js"></script>
   </body>
 </html>
