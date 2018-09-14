@@ -91,4 +91,35 @@ function draw(data) {
       }
     }
   } );
+
+  vegaEmbed("#device-edits", {
+    title: "Monthly unique devices and non bot edits",
+    width: 800,
+    height: 400,
+    data: { values: data },
+    "selection": {
+      "grid": {
+        "type": "interval", "bind": "scales"
+      }
+    },
+    mark: 'point',
+    encoding: {
+      x: {
+        field: 'monthly_unique_devices',
+        type: 'quantitative'
+      },
+      y: {
+        field: 'monthly_nonbot_edits',
+        type: 'quantitative'
+      },
+      color: {
+        field: 'project_code',
+        type: 'nominal'
+      },
+      tooltip: {
+        field: 'wiki_name',
+        type: 'nominal'
+      }
+    }
+  } );
 }
