@@ -1,11 +1,21 @@
+nth= function(x){
+    if(x%1) return this;
+    var s= x%100;
+    if(s>3 && s<21) return x+'th';
+    switch(s%10){
+        case 1: return x+'st';
+        case 2: return x+'nd';
+        case 3: return x+'rd';
+        default: return x+'th';
+    }
+}
+
 function draw ( data ) {
 
   // remove commons, wikidata and enwiki
-  data = data.filter( function (d) {
-    console.log(d.wiki);
+  /*data = data.filter( function (d) {
     return ( d.wiki !== "English Wikipedia" && d.wiki !== 'Wikimedia Commons' && d.wiki !== 'Wikidata')
-  })
-  console.log(data[0]);
+  })*/
 
   var dimsToAnalyze = [
     'monthly_unique_devices',
@@ -174,12 +184,20 @@ function analyzeDimension( data, dim ) {
     the_main_cv = (mainSummary.stdev / mainSummary.mean) * 100;
     the_main_range = nOfUniqPointsInDim(main, dim);
     $el.append($('<p>').append ( getDimSumSen( mainSummary )));
-    drawScatter( 'For main', dim, main, $el );
+
+    var percentile = nth(Math.round((main.length*100)/ data.length));
+    var title = 'For data below the ' + percentile + ' percentile';
+
+    drawScatter( title, dim, main, $el );
   }
   if ( top.length > 0 ) {
     var topSummary = summaryForDimension( top, dim )
     $el.append($('<p>').append ( getDimSumSen( topSummary )));
-    drawScatter( 'For top outlier', dim, top, $el );
+
+    var percentile = nth(Math.round(((data.length-top.length)*100)/ data.length));
+    var title = 'For data above the ' + percentile + ' percentile';
+
+    drawScatter( title, dim, top, $el );
   }
   if ( bottom.length > 0 ) {
     var bottomSummary = summaryForDimension( bottom, dim )
@@ -199,7 +217,7 @@ function drawScatter(title, dim, data,$el) {
   var id = 'viz-' + dim + '-' + title.toLowerCase().split( ' ' ).join( '-' );
   $el.append( $('<div>').attr('id',id))
   vegaEmbed( '#' + id, {
-    title: title + ' (' + data.length + ')',
+    title: title + ' (' + data.length + ' wikis)',
     width: 900,
     height: 50,
     data: { values: data },

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Segmentation data</title>
+    <title>Segmentation data - Variables</title>
 
     <script src="node_modules/vega/build/vega.min.js"></script>
     <script src="node_modules/vega-lite/build/vega-lite.min.js"></script>
@@ -50,8 +50,18 @@
     <div class="container">
       <h1>Variables</h1>
       <p>
-        A collection of visualizations made from the <a href="https://docs.google.com/spreadsheets/d/1a-UBqsYtJl6gpauJyanx0nyxuPqRvhzJRN817XpkuS8/edit#gid=235909702">Wiki Segmentation Data</a>.
-        Hoping to use this to find patterns and insights in the data. If you have any visualizations in mind, or want one with a focus on a few variables feel free to <a href="https://github.com/prtksxna/segmentation-data/issues/new?template=visualization-request.md">request a new visualization</a>.
+        Here we look at the quantitative variables in the segmentation data. The
+        first section looks at the <a href="https://en.wikipedia.org/wiki/Coefficient_of_variation">
+        coefficient of variation</a> of the variable, with and without the
+        outliers in the data.
+      </p>
+      <p>
+        The second section looks at each variable individually. First we look at
+        the distribution of all the wikis based on that variable, the red line
+        showing the <a href="https://en.wikipedia.org/wiki/Mean">mean</a>. We
+        then get rid of the <a href="https://en.wikipedia.org/wiki/Outlier#Tukey's_fences">
+        outliers</a> and visualize it in the same way. We do the same for the
+        outlying data as well.
       </p>
 
       <hr>
