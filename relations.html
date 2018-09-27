@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Segmentation data - Relations</title>
+
+    <script src="node_modules/vega/build/vega.min.js"></script>
+    <script src="node_modules/vega-lite/build/vega-lite.min.js"></script>
+    <script src="node_modules/vega-embed/build/vega-embed.min.js"></script>
+    <script src="d3.min.js"></script>
+    <script src="jquery.js"></script>
+    <script src="stats.js"></script>
+    <style media="screen">
+      body {
+        background: #eee;
+        padding: 0;
+        margin: 0;
+        font: 1rem 'Helvetica Neue', Arial, sans-serif;
+      }
+      h1, h2, h3 {
+        font-weight: 400;
+      }
+      .container {
+        width: 960px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 3rem;
+      }
+      a {
+        color: #000;
+      }
+      hr {
+        margin: 3rem 0;
+        border: none;
+        border-bottom: 1px solid #ddd;
+      }
+      p {
+        color: #666;
+        font: 1rem 'Hoefler Text', Georgia, serif;
+        line-height: 1.5;
+      }
+
+      h3 {
+        margin-top: 8rem;
+      }
+      .vega-actions { display:none; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Relations</h1>
+      <p>
+        We are comparing all variables and calculating their
+        <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">Pearson correlation coefficient</a>.
+        It is a measure of linear correlation between two variables.
+      </p>
+
+      <p>
+        We have removed Wikidata, Commons and English Wikipedia from the data to
+        get better results.
+
+      </p>
+
+      <p>
+        The first graph just plots the PCC value for all comparisons. We have
+        quite a few that are over 0.75, which means there is a strong linear correlation.
+
+        The graphs after that plot the two variable, and show the line that best
+        describes the correlation. Wikis that are far away from that line are not
+        following the usual model.
+
+        The more you scroll, the lesser the correlation.
+      </p>
+
+      <p>
+        In general, a correlation can be:
+        <ul>
+          <li>Obvious</li>
+          <li>Interesting</li>
+          <li>Incidental</li>
+        </ul>
+      </p>
+
+      <hr>
+
+      <h2>Pearson correlation coefficient</h2>
+      <div id="rel"></div>
+
+      <h2>Top correlated</h2>
+      <div id="top"></div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="relations.js"></script>
+  </body>
+</html>
