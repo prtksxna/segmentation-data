@@ -103,6 +103,10 @@ function showClusters(title,clusters, data) {
         color: {
           field: 'cluster',
           type: 'nominal'
+        },
+        tooltip: {
+          field: 'wiki_name',
+          type: 'nominal'
         }
       }
     }
