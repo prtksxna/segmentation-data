@@ -72,7 +72,19 @@
       <p>
         We are calculating <code>kmeans</code> by taking all numeric data points
         as a dimension. There are about 30 of those, so that makes it hard to
-        visualize the clustering.
+        visualize the clustering. So, we are look at the <a href="variables.html">
+        variables analysis</a> and plot on the variables that have the highest
+        <a href="https://en.wikipedia.org/wiki/Coefficient_of_variation">
+        coefficient of variation</a>. These are <code>monthly_unique_devices</code>,
+        <code>content_pages</code> and <code>monthly_editors</code>. Plotting these
+        against each other we get 9 scatter plots, moving and zooming in each will
+        move and zoom the others on the same axis as well.
+      </p>
+
+      <p>
+        Finding the appropriate number of clusters was a bit tricky, and so for
+        the time being I have generated the data for 3-7 clusters. You can see
+        the visualizations and lists of wikis for each below.
       </p>
       <hr>
 
